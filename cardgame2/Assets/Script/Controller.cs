@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
         }
     }
     //配列を作る
-    //デッキからフィールドへ
+    //デッキからフィールドへカードを出す
     public void DeckDorw()
     {
         count -= plans;
@@ -36,7 +36,7 @@ public class Controller : MonoBehaviour
         test[count] = Instantiate(card[Random.Range(0, 8)], new Vector3(-1.8f + (1.2f * (count % 4)), 0.2f, 4f - (2f * (count / 4))), Quaternion.identity, cardParent);
         plans = 0;
     }
-    //引く
+    //手札に引く
     public void HandDorw(int number)
     {
         Instantiate(card[number], new Vector3(-10f, 0f, 1f), Quaternion.Euler(270f, 0f, 0f), HandParent);
@@ -49,7 +49,8 @@ public class Controller : MonoBehaviour
         test[count] = Instantiate(card[number], new Vector3(-1.8f + (1.2f * (count % 4)), 0.2f, 4f - (2f * (count / 4))), Quaternion.identity, cardParent);
         plans = 0;
     }
-    //ジャッチ２
+    //斜め左上、上、斜め右上、左を順にみてtagが一致したら消す。
+    //destroyしたまんまだと止まるからnullに置き換える
     public void Judge(string tag)
     {
         int keep = count;
@@ -151,6 +152,7 @@ public class Controller : MonoBehaviour
         Shorten(keep);
     }
     //フィールドを詰める
+    //詰めたらJudgeに戻ってもう一度判定。最後に置いた所まで判定したら終わりのはず、、？
     public void Shorten(int card)
     {
         Debug.Log("A");
@@ -171,7 +173,7 @@ public class Controller : MonoBehaviour
                         break;
                     }
                 }
-                //Judge(test[X].gameObject.tag);
+                //Judge(test[X].gameObject.tag);　//コメント化してるのに正常にJudgeに行くのなぜ？
             }
         }
     }
