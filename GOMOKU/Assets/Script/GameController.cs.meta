@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 13e8f5edd708f784193d1f8014862839
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - WhiteStone: {fileID: 9091490416627987117, guid: 58139c18cea509a40be1c2af60b3eb74,
+      type: 3}
+  - BlackStone: {fileID: 4003144513064658164, guid: 0c01ca6d129bc45429e48430b989d017,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
